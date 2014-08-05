@@ -19,7 +19,7 @@ exports.students = function(req, res){
   });
 };
 
-exports.details = function(){
+exports.details = function(req, res){
   Student.findByID(req.params.id, function(student){
     res.render('students/detail', {student:student});
   });
