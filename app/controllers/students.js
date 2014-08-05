@@ -25,3 +25,8 @@ exports.details = function(req, res){
   });
 };
 
+exports.test = function(req, res){
+  Student.findByID(req.params.id, function(){
+    res.render('students/test' );
+  });
+};
