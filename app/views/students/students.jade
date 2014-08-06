@@ -2,4 +2,25 @@ extends ../shared/template
 
 block content
   h2 students
-
+  table
+    thead
+      th Name
+      th Average
+      th Letter Grade
+      th Suspended
+      th Honor Roll
+    tbody
+    each student in students
+      tr
+        td(style='background-color:#{student.color}'): a(href='/students/#{student._id}')= student.name
+        td= student.avg
+        td= student.letterGrade()
+        if student._suspended
+          td(style='background-color:red;') Yes
+        else
+          td(style='background-color:green;') No
+        if student._honorRoll
+          td(style='background-color:green;') Yes
+        else
+          td(style='background-color:red;') No
+        

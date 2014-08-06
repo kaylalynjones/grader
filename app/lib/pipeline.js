@@ -21,6 +21,7 @@ module.exports = function(app, express){
   app.post('/students', students.create);
   app.get('/students', students.students);
   app.get('/students/:id', students.details);
+  app.post('/students/:id/test', students.addTest);
   app.get('/students/:id/test', students.test);
 
   console.log('Pipeline Configured');

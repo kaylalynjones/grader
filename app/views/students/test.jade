@@ -1,4 +1,9 @@
 extends ../shared/template
 
 block content
-  h2 Test
+  h2 Adding Test Score to #{student.name}
+
+  form(method='post' action='/students/#{student._id}/test')
+    input(name='score' type='number' autofocus=true)
+    button Add Test
+

@@ -12,7 +12,6 @@ function Student(obj){
   this._honorRoll = false;
   this.tests = [];
   this.avg = 0;
-  //this.letterGrade = 
 }
 
 Object.defineProperty(Student, 'collection', {

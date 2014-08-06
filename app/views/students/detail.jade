@@ -2,3 +2,24 @@ extends ../shared/template
 
 block content
   h2 details
+  h3= student.name
+  form(method='get' action='/students/#{student._id}/test')
+    ul
+      li Average #{student.avg}
+      li Letter Grade #{student.letterGrade()}
+      if student._suspended
+        li(style='color:red;') Suspended: 
+          span Yes
+      else
+        li(style='color:green;') Suspended: 
+          span No
+      if student._honorRoll
+        li(style='color:green;') Honor Roll: 
+          span Yes
+      else
+        li(style='color:red;') Honor Roll: 
+          span No
+    button Add Test Score
+
+    
+

@@ -15,18 +15,26 @@ exports.create = function(req, res){
 
 exports.students = function(req, res){
   Student.all(function(students){
-    res.render('students/students');
+    res.render('students/students', {students:students});
   });
 };
 
 exports.details = function(req, res){
-  Student.findByID(req.params.id, function(student){
+  Student.findById(req.params.id, function(student){
     res.render('students/detail', {student:student});
   });
 };
 
 exports.test = function(req, res){
-  Student.findByID(req.params.id, function(){
-    res.render('students/test' );
+  Student.findById(req.params.id, function(student){
+    res.render('students/test', {id:student._id, student:student});
+  });
+};
+
+exports.addTest = function(req, res){
+  Student.findById(req.params.id, function(student){
+    student.addTest(req.body.score, function(){
+      res.redirect('students/detail', {student:student});
+    });
   });
 };
